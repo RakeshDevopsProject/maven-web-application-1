@@ -1,0 +1,23 @@
+node{
+    
+    properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '3', daysToKeepStr: '3', numToKeepStr: '3')), pipelineTriggers([githubPush()])])
+    def mavenHome = tool name: 'maven3.8.6'
+    
+    stage('getting code from SCM'){
+        git branch: 'development', credentialsId: '68fb11e4-8e53-4228-8c59-08196beeff43', url: 'https://github.com/RakeshDevopsProject/maven-web-application-1.git'
+    }
+    stage('build the code'){
+        sh "${mavenHome}/bin/mvn clean package"
+    }
+    stage('creating sonarreport'){
+        sh "${mavenHome}/bin/mvn clean sonar:sonar"
+    }
+    stage('artifacts repo'){
+        sh "${mavenHome}/bin/mvn clean deploy"
+    }
+    stage('deploy into tomcat'){
+       sshagent(['b8a85670-461a-4658-9931-9bcbffe4e56c']) {
+    sh ("scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@3.93.215.76:/opt/tomcat/webapps/")
+       }
+    } 
+}

@@ -21,7 +21,7 @@
 		<spring.version>5.1.2.RELEASE</spring.version>
 		<junit.version>4.11</junit.version>
 		<log4j.version>1.2.17</log4j.version>
-		<sonar.host.url>http://52.91.17.213:7013/rakeshdevops/</sonar.host.url>
+		<sonar.host.url>http://54.89.80.40:7013/rakeshdevops/</sonar.host.url>
                 <sonar.login>b418b85d7e3cacd75282b2c5ddcc7695f3f62f92</sonar.login>
 		
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -98,13 +98,13 @@
 	    <repository>
 	      <id>nexus</id>
 	      <name>Rakesh devopsprojects Releases Nexus Repository</name>
-	      <url>http://44.201.153.204:8081/repository/slacknotificcation-Release-Repo/</url>
+	      <url>http://34.239.110.89:8081/repository/slacknotificcation-Release-Repo/</url>
 	    </repository>
 	    
 	    <snapshotRepository>
 	      <id>nexus</id>
 	      <name>Rakesh Devopsprojects Snapshot Nexus Repository </name>
-	      <url>http://44.201.153.204:8081/repository/slacknotification-Snapshot-Repo/</url>
+	      <url>http://34.239.110.89:8081/repository/slacknotification-Snapshot-Repo/</url>
 	    </snapshotRepository>
 	    
 	</distributionManagement>
